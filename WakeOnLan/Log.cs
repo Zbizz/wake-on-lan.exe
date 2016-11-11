@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.IO;
 using System.Reflection;
 
@@ -8,7 +9,7 @@ namespace WakeOnLan.exe
     {
         public static void Write(string message, bool success)
         {
-            string file = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\Log.txt";
+            string file = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\" + ConfigurationManager.AppSettings["LogFileName"].ToString();
 
             StreamWriter log;
 
